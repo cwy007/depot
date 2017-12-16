@@ -17,10 +17,13 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create product" do
     assert_difference('Product.count') do
-      post products_url, params: { product: { description: @product.description, image_url: @product.image_url, price: @product.price, title: @product.title + 'uniqueness' } }
+      post products_url, params: { product: { description: @product.description,
+                                              image_url: @product.image_url,
+                                              price: @product.price,
+                                              title: @product.title + 'uniqueness' } }
     end
-
-    assert_redirected_to product_url(Product.last)
+    p = Product.where(:title => @product.title + 'uniqueness').first
+    assert_redirected_to product_url(p)
   end
 
   test "should show product" do
