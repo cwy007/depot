@@ -19,6 +19,7 @@
         <%= link_to 'Questions', '#' %><br>
         <%= link_to 'News', '#' %><br>
         <%= link_to 'Contact', '#' %><br>
+        <span class="datetime"><%= Time.now.to_s(:long) %></span>
       </div>
       <div id="main">
         <%= yield %>

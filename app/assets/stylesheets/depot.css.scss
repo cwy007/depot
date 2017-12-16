@@ -147,9 +147,11 @@
     width: 12em;
     background: #141;
 
-    a {
+    a, .datetime {
       color: #bfb;
       font-size: small;
+      display: inline-block;
+      margin-bottom: 0.5em;
     }
   }
 }
