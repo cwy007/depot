@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+arr = ['cs.jpg', 'logo.png', 'rails.png', 'rtp.jpg', 'ruby.jpg']
+Product.delete_all
+10.times do |i|
+  Product.create(:title => "No#{i}-Programming Ruby 1.9",
+    :description =>
+    # %{} equal to ""
+    %{<p>
+      Ruby is the fastest growing and most exciting dynamic language out
+      there. If you need to get working programs delivered fast, you should
+      add Ruby to your toolbox.
+      </p>},
+      :image_url => arr.sample,
+      :price => rand(40.00..60.00))
+end
+puts 'create 10 products.'
