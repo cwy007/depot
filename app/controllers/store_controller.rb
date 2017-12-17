@@ -5,7 +5,7 @@ class StoreController < ApplicationController
       session[:counter] = 1
     else
       session[:counter] += 1
-    end 
+    end
     @counter = session[:counter]
   end
 end

@@ -29,10 +29,9 @@ class CombineItemsInCart < ActiveRecord::Migration[5.1]
           end
 
           # remove original item
-          line_item.destroy 
+          line_item.destroy
         end
       end
     end
-
   end
 end
