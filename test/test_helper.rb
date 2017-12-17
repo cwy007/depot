@@ -6,4 +6,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  # def set_current_cart(cart)
+    # session[:cart_id] = cart.id  # NOTE:  why cannot use session
+  # end
 end
