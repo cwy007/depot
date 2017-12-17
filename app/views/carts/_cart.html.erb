@@ -10,4 +10,4 @@
   </tr>
 </table>
 
-<%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure' }, class: 'empty-cart-btn' %>
+<%= button_to 'Empty cart', cart, method: :delete, remote: true, class: 'empty-cart-btn' %>
