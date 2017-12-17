@@ -3,18 +3,21 @@
 <% end %>
 
 <div class="cart_title">Your Cart</div>
-<table>
+<table class="cart">
   <% @cart.line_items.each do |item| %>
     <tr>
+      <td class="item_image"><%= image_tag item.product.image_url %></td>
       <td><%= item.quantity %>&times;</td>
       <td><%= item.product.title %></td>
       <td class="item_price"><%= number_to_currency(item.total_price, unit: '¥') %></td>
+      <td><%= link_to 'delete', line_item_path(item), method: :delete %></td>
     </tr>
   <% end %>
 
   <tr class="total_line">
-    <td colspan="2">Total</td>
+    <td colspan="3">Total</td>
     <td class="total_cell"><%= number_to_currency(@cart.total_price, unit: '¥') %></td>
+    <td></td>
   </tr>
 </table>
-<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure' } %>
+<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure' }, class: 'empty-cart-btn' %>
