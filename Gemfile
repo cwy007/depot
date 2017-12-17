@@ -39,6 +39,9 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  # assigns allows you to access the instance variables that have been passed to your views.
+  # assert_template allows to you assert that certain templates have been rendered.
+  gem 'rails-controller-testing'
 end
 
 group :development do

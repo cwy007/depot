@@ -15,7 +15,7 @@
     </div>
     <div id="columns">
       <div id="side">
-        <%= link_to 'Home', '#' %><br>
+        <%= link_to 'Home', store_path %><br>
         <%= link_to 'Questions', '#' %><br>
         <%= link_to 'News', '#' %><br>
         <%= link_to 'Contact', '#' %><br>
@@ -23,6 +23,7 @@
       </div>
       <div id="main">
         <%= yield %>
+        <%= debug(params) if Rails.env.development? %>
       </div>
     </div>
   </body>

@@ -100,6 +100,14 @@
     .price_line {
       clear: both;
       margin-bottom: 0.5em;
+      form {
+        display: inline;
+
+        input {
+          color: #44a;
+          cursor: pointer;
+        }
+      }
     }
 
     .add_to_cart {

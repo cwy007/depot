@@ -8,7 +8,7 @@
 
 arr = ['cs.jpg', 'logo.png', 'rails.png', 'rtp.jpg', 'ruby.jpg']
 Product.delete_all
-10.times do |i|
+6.times do |i|
   Product.create(:title => "No#{i}-Programming Ruby 1.9",
     :description =>
     # %{} equal to ""
@@ -20,4 +20,4 @@ Product.delete_all
       :image_url => arr.sample,
       :price => rand(40.00..60.00))
 end
-puts 'create 10 products.'
+puts 'create 6 products.'
