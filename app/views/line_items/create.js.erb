@@ -1,3 +1,9 @@
 // $('#cart').html("<%=j render :partial => "carts/cart", :locals => { :cart => @cart } %>")
-$('#cart').html("<%=j render @cart %>")
+<% if @cart.total_items == 1 %>
+  // add blind effect to cart when first add product to cart
+  $('#cart').html("<%=j render @cart %>").hide();
+  $("#cart").show('blind', {  } , 500);
+<% else %>
+  $('#cart').html("<%=j render @cart %>")
+<% end %>
 $('#current_item').effect("highlight", {color: '#DFF2BF'}, 1500);
