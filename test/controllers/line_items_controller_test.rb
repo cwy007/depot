@@ -20,7 +20,7 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
       post line_items_url, params: { :product_id => products(:ruby).id }
     end
 
-    assert_redirected_to cart_url(assigns(:line_item).cart)
+    assert_redirected_to store_url
   end
 
   test "should show line_item" do
@@ -32,11 +32,14 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     get edit_line_item_url(@line_item)
     assert_response :success
   end
-  
+
   # NOTE: ? Expected response to be a <3XX: redirect>, but was a <200: OK>
   test "should update line_item" do
-    patch line_item_url(@line_item), params: { line_item: { cart_id: @line_item.cart_id, product_id: @line_item.product_id } }
-    assert_redirected_to line_item_url(@line_item)
+    post line_items_url, params: { :product_id => products(:ruby).id }
+    current_cart = assigns[:cart]
+    item = assigns[:line_item]
+    patch line_item_url(item), params: { line_item: { cart_id: current_cart.id, product_id: item.product_id } }
+    assert_redirected_to line_item_url(item)
   end
 
   test "should destroy line_item" do
@@ -44,6 +47,17 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
       delete line_item_url(@line_item)
     end
 
-    assert_redirected_to line_items_url
+    assert_redirected_to store_url
+  end
+
+  test "should create line_item via ajax" do
+    assert_difference('LineItem.count') do
+      post line_items_url, params: { :product_id => products(:ruby).id }, xhr: true
+    end
+
+    assert_response :success                         # NOTE: assert_select_rjs
+    # assert_select_rjs :replace_html, 'cart' do
+      # assert_select 'tr#current_item td', /Programming Ruby 1.9/
+    # end
   end
 end
