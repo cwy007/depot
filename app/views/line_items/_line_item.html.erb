@@ -4,6 +4,7 @@
 <tr>
 <% end %>
   <td class="item_image"><%= image_tag line_item.product.image_url %></td>
+  <td><%= link_to '⬇︎', line_item_path(line_item, reduce: true), method: :patch, style: 'color: white' %></td>
   <td><%= line_item.quantity %>&times;</td>
   <td><%= line_item.product.title %></td>
   <td class="item_price"><%= number_to_currency(line_item.total_price, unit: '¥') %></td>

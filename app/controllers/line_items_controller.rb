@@ -45,8 +45,17 @@ class LineItemsController < ApplicationController
   # PATCH/PUT /line_items/1.json
   def update
     respond_to do |format|
-      if @line_item.update(line_item_params)
-        format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
+      if params[:reduce]
+        if @line_item.quantity > 1
+          @line_item.quantity -= 1
+          @line_item.save
+        else
+          @line_item.destroy
+        end
+        format.html { redirect_to store_url, notice: 'Line item was successfully updated.' }
+        format.json { render :show, status: :ok, location: @line_item }
+      elsif @line_item.update(line_item_params)
+        format.html { redirect_to store_url, notice: 'Line item was successfully updated.' }
         format.json { render :show, status: :ok, location: @line_item }
       else
         format.html { render :edit }
