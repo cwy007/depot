@@ -63,8 +63,9 @@ class ProductsController < ApplicationController
 
   def who_bought
     respond_to do |format|
-      format.atom 
-      format.json { render json: @product }
+      format.html
+      format.atom
+      format.json { render json: @product.orders }
     end
   end
 

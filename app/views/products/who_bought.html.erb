@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @orders.each do |order| %>
+    <% @product.orders.each do |order| %>
       <tr>
         <td><%= order.name %></td>
         <td><%= simple_format order.address %></td>
@@ -29,4 +29,3 @@
 <br>
 
 <%= link_to 'New Order', new_order_path %>
-<%= will_paginate @orders %>
