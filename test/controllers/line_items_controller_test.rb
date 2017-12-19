@@ -39,7 +39,7 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     current_cart = assigns[:cart]
     item = assigns[:line_item]
     patch line_item_url(item), params: { line_item: { cart_id: current_cart.id, product_id: item.product_id } }
-    assert_redirected_to line_item_url(item)
+    assert_redirected_to store_url
   end
 
   test "should destroy line_item" do

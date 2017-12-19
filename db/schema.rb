@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20171218224341) do
   create_table "orders", force: :cascade do |t|
     t.string "name"
     t.text "address"
+    t.string "email"
+    t.string "pay_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

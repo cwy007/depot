@@ -13,15 +13,25 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :order_name %>
+    <%= form.text_field :name, id: :order_name, size: 40 %>
   </div>
 
   <div class="field">
     <%= form.label :address %>
-    <%= form.text_area :address, id: :order_address %>
+    <%= form.text_area :address, id: :order_address, rows: 3, cols: 40 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email, size: 40 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pay_type %>
+    <%= form.select :pay_type, Order::PAYMENT_TYPES, prompt: 'Select a payment memthod' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'submit' %>
   </div>
 <% end %>
