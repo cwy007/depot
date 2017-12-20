@@ -7,7 +7,7 @@ class NotifierMailer < ApplicationMailer
   #
   def order_received(order)
     @order = order
-
+    
     mail to: order.email, subject: 'Progmatic Store Order Confirmation'
   end
 
