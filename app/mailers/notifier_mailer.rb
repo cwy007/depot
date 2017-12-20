@@ -17,8 +17,8 @@ class NotifierMailer < ApplicationMailer
   #   en.notifier_mailer.order_shipped.subject
   #
   def order_shipped
-    @greeting = "Hi"
+    @order = order
 
-    mail to: "to@example.org"
+    mail to: order.email, subject: 'Progmatic Store Order Shipped'
   end
 end
