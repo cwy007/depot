@@ -13,11 +13,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: Dave
   hashed_password: MyString
   salt: MyString
 
 two:
-  name: MyString
+  name: Michael
   hashed_password: MyString
   salt: MyString
