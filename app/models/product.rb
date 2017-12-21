@@ -25,6 +25,10 @@ class Product < ApplicationRecord
     :message => 'must be a URL for GIF, JPG or PNG image.'
   }
 
+  # If a method is private in Ruby, then it cannot be called by an
+  # explicit receiver (object). It can only be call implicitly. It can
+  # be called implicitly by the class in which it has been described in
+  # as well as by the subclasses of this class.
   private
 
     # ensure that there are no line items referencing this product
