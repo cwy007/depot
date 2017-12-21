@@ -21,3 +21,7 @@ Product.delete_all
       :price => rand(40.00..60.00))
 end
 puts 'create 6 products.'
+
+
+# create an user
+# User.create(name: 'dave', password: 'secret', password_confirmation: 'secret')

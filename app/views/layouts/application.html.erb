@@ -21,10 +21,20 @@
           <% end %>
         <% end %>
 
-        <%= link_to 'Home', store_path %><br>
-        <%= link_to 'Questions', '#' %><br>
-        <%= link_to 'News', '#' %><br>
-        <%= link_to 'Contact', '#' %><br>
+        <%= link_to 'Home', store_path %> <br>
+        <%= link_to 'Questions', '#' %> <br>
+        <%= link_to 'News', '#' %> <br>
+        <%= link_to 'Contact', '#' %> <br>
+
+        <% if session[:user_id] %>
+          <br>
+          <%= link_to 'Orders', orders_path %> <br>
+          <%= link_to 'Products', products_path %> <br>
+          <%= link_to 'Users', users_path %> <br>
+          <br>
+          <%= button_to 'Logout', logout_path, method: :delete %>
+        <% end %>
+
         <span class="datetime"><%= Time.now.to_s(:long) %></span>
       </div>
       <div id="main">
