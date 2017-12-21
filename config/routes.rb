@@ -2,21 +2,27 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#index'
 
   controller :sessions do
-    get  'login'  => :new 
+    get  'login'  => :new
     post 'login'  => :create
     delete 'logout' => :destroy
   end
 
-  resources :users
-  resources :orders
-  resources :line_items
-  resources :carts
-  resources :products do
-    get 'who_bought', on: :member
-  end
-  get 'store/index'
+  # :defaults => { :format => :json } 指定响应的默认格式
+  # namespace :api, :defaults => { :format => :json } do
+  # end
 
-  root 'store#index', :as => 'store'
+  # (:locale)，放在括号中，表示这个是可选的
+  scope '(:locale)' do
+    resources :users
+    resources :orders
+    resources :line_items
+    resources :carts
+    resources :products do
+      get 'who_bought', on: :member
+    end
+    get 'store/index'
+    root 'store#index', :as => 'store'
+  end
 end
 
 # == Route Map
