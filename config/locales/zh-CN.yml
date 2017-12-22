@@ -1,5 +1,6 @@
 zh-CN:
   hello: '你好'
+  thanks: '感谢惠顾'
   layouts:
     application:
       title:     "务实的书架📚"
@@ -19,8 +20,37 @@ zh-CN:
   number:
     currency:
       format:
-        unit: '$USD'
+        unit:      '$USD'
         precision: 2
         separator: '.'
         delimiter: ','
-        format: "%n&nbsp;%u"
+        format:    "%n&nbsp;%u"
+  orders:
+    new:
+      legend:       '请输入你的详细信息'
+    form:
+      name:         '名字'
+      address_html: '地址'
+      email:        '邮箱'
+      pay_type:     '支付类型'
+      pay_prompt_html: '选择一种支付方式'
+      submit:       '下单'
+  activerecord:
+    errors:
+      messages:
+        inclusion: 不包含于列表中
+        blank: 不能为空字符
+    models:
+      order: "订单"
+    attributes:
+      order:
+        address: "地址"
+        name: "姓名"
+        email: "邮箱"
+        pay_type: "支付类型"
+  errors:
+    template:
+      body: 如下字段出现错误：
+      header:
+        one: 有 1 个错误发生导致“%{model}”无法被保存。
+        other: 有 %{count} 个错误发生导致“%{model}”无法被保存。
