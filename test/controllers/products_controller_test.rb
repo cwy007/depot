@@ -23,7 +23,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
                                               title: @product.title + 'uniqueness' } }
     end
     p = Product.where(:title => @product.title + 'uniqueness').first
-    assert_redirected_to product_url(p)
+    assert_redirected_to product_url(p, locale: 'en')
   end
 
   test "should show product" do
@@ -38,7 +38,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update product" do
     patch product_url(@product), params: { product: { description: @product.description, image_url: @product.image_url, price: @product.price, title: @product.title } }
-    assert_redirected_to product_url(@product)
+    assert_redirected_to product_url(@product, locale: 'en')
   end
 
   test "should destroy product" do
@@ -46,6 +46,6 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       delete product_url(@product)
     end
 
-    assert_redirected_to products_url
+    assert_redirected_to products_url(locale: 'en')
   end
 end

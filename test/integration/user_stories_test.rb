@@ -28,12 +28,12 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_template 'new'
 
-    post '/orders', params: {
+    post '/en/orders', params: {
       order: {
         :name => 'Dave Thomas',
         :address => '123 The street',
         :email => 'dave@example.com',
-        :pay_type => 'Check'
+        :pay_type => 'check'
       }
     }
     follow_redirect!
@@ -49,7 +49,7 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     assert_equal 'Dave Thomas',      order.name
     assert_equal '123 The street',   order.address
     assert_equal 'dave@example.com', order.email
-    assert_equal 'Check',            order.pay_type
+    assert_equal 'check',            order.pay_type
 
     assert_equal 1, order.line_items.size
     line_item = order.line_items[0]

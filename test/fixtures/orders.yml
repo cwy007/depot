@@ -17,9 +17,9 @@ one:
   name: Dave Thomas
   address: MyText
   email: dave@example.com
-  pay_type: Check
+  pay_type: check
 two:
   name: MyString
   address: MyText
   email: chan@example.com
-  pay_type: Check
+  pay_type: check

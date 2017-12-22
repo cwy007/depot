@@ -20,7 +20,7 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
       post line_items_url, params: { :product_id => products(:ruby).id }
     end
 
-    assert_redirected_to store_url
+    assert_redirected_to store_url(locale: 'en')
   end
 
   test "should show line_item" do
@@ -39,7 +39,7 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     current_cart = assigns[:cart]
     item = assigns[:line_item]
     patch line_item_url(item), params: { line_item: { cart_id: current_cart.id, product_id: item.product_id } }
-    assert_redirected_to store_url
+    assert_redirected_to store_url(locale: 'en')
   end
 
   test "should destroy line_item" do
@@ -47,7 +47,7 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
       delete line_item_url(@line_item)
     end
 
-    assert_redirected_to store_url
+    assert_redirected_to store_url(locale: 'en')
   end
 
   test "should create line_item via ajax" do

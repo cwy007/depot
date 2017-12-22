@@ -41,16 +41,21 @@ zh-CN:
         inclusion: 不包含于列表中
         blank: 不能为空字符
     models:
-      order: "订单"
+      order: 订单
     attributes:
       order:
-        address: "地址"
-        name: "姓名"
-        email: "邮箱"
-        pay_type: "支付类型"
+        address: 地址
+        name: 姓名
+        email: 邮箱
+        pay_type: 支付类型
   errors:
     template:
       body: 如下字段出现错误：
       header:
         one: 有 1 个错误发生导致“%{model}”无法被保存。
         other: 有 %{count} 个错误发生导致“%{model}”无法被保存。
+  order:
+    payment_types:
+      check: 支票
+      'credit cart': 信用卡
+      'purchase order': 采购订单

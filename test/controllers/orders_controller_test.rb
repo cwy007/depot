@@ -12,7 +12,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
 
   test "require item in cart when create order" do
     get new_order_url
-    assert_redirected_to store_url
+    assert_redirected_to store_url(locale: 'en')
     assert_equal flash[:notice], 'Your cart is empty'
   end
 
@@ -28,7 +28,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
       post orders_url, params: { order: { address: @order.address, name: @order.name, email: @order.email, pay_type: @order.pay_type } }
     end
 
-    assert_redirected_to store_url
+    assert_redirected_to store_url(locale: 'en')
   end
 
   test "should show order" do
@@ -43,7 +43,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
 
   test "should update order" do
     patch order_url(@order), params: { order: { address: @order.address, name: @order.name, email: @order.email, pay_type: @order.pay_type } }
-    assert_redirected_to order_url(@order)
+    assert_redirected_to order_url(@order, locale: 'en')
   end
 
   test "should destroy order" do
@@ -51,6 +51,6 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
       delete order_url(@order)
     end
 
-    assert_redirected_to orders_url
+    assert_redirected_to orders_url(locale: 'en')
   end
 end
