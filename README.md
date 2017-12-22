@@ -47,4 +47,10 @@ rake test
 
 * Deployment instructions
 
-* ...
+### View the pagination effect
+
+1. first run `rails runner script/load_orders.rb`
+
+2. then login a user
+
+3. visit http://localhost:3000/en/orders
