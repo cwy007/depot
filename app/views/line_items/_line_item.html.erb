@@ -7,6 +7,6 @@
   <td><%= link_to '⬇︎', line_item_path(line_item, reduce: true), method: :patch, remote: true, style: 'color: white' %></td>
   <td><%= line_item.quantity %>&times;</td>
   <td><%= line_item.product.title %></td>
-  <td class="item_price"><%= number_to_currency(line_item.total_price, unit: '¥') %></td>
+  <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
   <td><%= link_to 'delete', line_item_path(line_item), method: :delete, remote: true %></td>
 </tr>

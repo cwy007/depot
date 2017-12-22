@@ -31,6 +31,7 @@ class ApplicationController < ActionController::Base
     end
 
     # before_action 过滤方法
+    # I18n.available_locales 为config/locales/ 目录下 *.yml 文件名的集合[:en, :es, :'zh-CN']
     def set_i18n_locale_from_params
       if params[:locale]
         if I18n.available_locales.include?(params[:locale].to_sym)
@@ -42,7 +43,10 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def default_url_options                 # NOTE: 什么时候，以及在哪里调用的这个方法
+    # http://edgeguides.rubyonrails.org/i18n.html#setting-the-locale-from-url-params
+    # NOTE: 什么时候，以及在哪里调用的这个方法 ? 默认的方法名，用来设定
+    # 网址中的 :locale, store_index_path GET (/:locale)/store/index(.:format) store#index
+    def default_url_options
       { :locale => I18n.locale }
     end
 end
