@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+LineItem.delete_all
+Order.delete_all
+User.delete_all
 
 arr = ['cs.jpg', 'logo.png', 'rails.png', 'rtp.jpg', 'ruby.jpg']
 Product.delete_all

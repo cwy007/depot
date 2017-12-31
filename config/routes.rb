@@ -23,6 +23,10 @@ Rails.application.routes.draw do
     get 'store/index'
     root 'store#index', :as => 'store'
   end
+
+  # resource :posts, shallow: true do
+  #   resources :reviews
+  # end
 end
 
 # == Route Map
@@ -75,4 +79,4 @@ end
 #                    DELETE (/:locale)/products/:id(.:format)            products#destroy
 #        store_index GET    (/:locale)/store/index(.:format)             store#index
 #              store GET    /(:locale)(.:format)                         store#index
-# 
+#

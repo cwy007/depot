@@ -56,8 +56,8 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_response :success                         # NOTE: assert_select_rjs
-    # assert_select_rjs :replace_html, 'cart' do
-      # assert_select 'tr#current_item td', /Programming Ruby 1.9/
+    # assert_select_jquery :html, '#cart' do
+    #   assert_select 'tr#current_item td', /Programming Ruby 1.9/
     # end
   end
 end
